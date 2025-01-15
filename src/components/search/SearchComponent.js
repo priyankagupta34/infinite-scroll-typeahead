@@ -21,6 +21,9 @@ function SearchComponent({ items }) {
       )
     );
   };
+  const clickItem = (event, val) => {
+    console.log("val", val);
+  };
   return (
     <div className="header">
       <h1>Infinite</h1>
@@ -37,7 +40,9 @@ function SearchComponent({ items }) {
         <div className="typeahead">
           {show &&
             filteredItems.map((val, i) => (
-              <div key={val + i}>{highlightMatch(val, search)}</div>
+              <div key={val + i} onMouseDown={(e) => clickItem(e, val)}>
+                {highlightMatch(val, search)}
+              </div>
             ))}
         </div>
       </div>
