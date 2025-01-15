@@ -43,11 +43,13 @@ function DashboardComponent() {
           );
         })}
       </div>
-      {load ? (
-        <div className="load">
-          <div className="inload" />
-        </div>
-      ) : null}
+      <div className="loadrr">
+        {load ? (
+          <div className="load">
+            <div className="inload" />
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 }

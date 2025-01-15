@@ -112,6 +112,12 @@ body {
   border-bottom: 1px solid gainsboro;
 }
 
+.loadrr {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
 @media only screen and (max-width: 500px) {
   .search {
     width: auto;
