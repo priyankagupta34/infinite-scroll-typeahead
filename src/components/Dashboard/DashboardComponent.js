@@ -26,23 +26,14 @@ function DashboardComponent() {
       <SearchComponent items={items} />
 
       <div className="details">
-        {items.map((item, index) => {
-          if (items.length - 1 === index) {
-            return (
-              <div key={item.id} ref={interectionObserver} className="book">
-                <div className="bookId">{item.id}</div>
-                <div className="bookName">{item.title}</div>
-              </div>
-            );
-          }
-          return (
-            <div key={item.id} className="book">
-              <div className="bookId">{item.id}</div>
-              <div className="bookName">{item.title}</div>
-            </div>
-          );
-        })}
+        {items.map((item, index) => (
+          <div key={item.id} className="book">
+            <div className="bookId">{item.id}</div>
+            <div className="bookName">{item.title}</div>
+          </div>
+        ))}
       </div>
+      <div ref={interectionObserver} />
       <div className="loadrr">
         {load ? (
           <div className="load">

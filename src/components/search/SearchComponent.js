@@ -1,13 +1,14 @@
 import { useState } from "react";
 import useSearchInTitles from "../../hook/useSearchInTitles";
+import useDebounce from "../../hook/useDebounce";
 
 function SearchComponent({ items }) {
   const [search, setSearch] = useState("");
   const [show, setShow] = useState(false);
-  const filteredItems = useSearchInTitles(items, search);
+  const debouncedSearch = useDebounce(search);
+  const filteredItems = useSearchInTitles(items, debouncedSearch);
   const highlightMatch = (text, query) => {
     if (!query) return text;
-    console.log("text", text);
     const regex = new RegExp(`(${query})`, "i");
     const list = text.split(regex);
     return list.map((item, index) =>
@@ -20,7 +21,6 @@ function SearchComponent({ items }) {
       )
     );
   };
-  console.log("filteredItems", filteredItems);
   return (
     <div className="header">
       <h1>Infinite</h1>
